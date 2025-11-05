@@ -1,0 +1,204 @@
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\_utils.py", line 79, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<string>", line 3, in <module>
+    |     resp = client.get('/')
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 479, in get
+    |     return super().get(
+    |            ~~~~~~~~~~~^
+    |         url,
+    |         ^^^^
+    |     ...<6 lines>...
+    |         extensions=extensions,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1053, in get
+    |     return self.request(
+    |            ~~~~~~~~~~~~^
+    |         "GET",
+    |         ^^^^^^
+    |     ...<7 lines>...
+    |         extensions=extensions,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 451, in request
+    |     return super().request(
+    |            ~~~~~~~~~~~~~~~^
+    |         method,
+    |         ^^^^^^^
+    |     ...<11 lines>...
+    |         extensions=extensions,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 825, in request
+    |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+    |            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 914, in send
+    |     response = self._send_handling_auth(
+    |         request,
+    |     ...<2 lines>...
+    |         history=[],
+    |     )
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    |     response = self._send_handling_redirects(
+    |         request,
+    |         follow_redirects=follow_redirects,
+    |         history=history,
+    |     )
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    |     response = self._send_single_request(request)
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    |     response = transport.handle_request(request)
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 354, in handle_request
+    |     raise exc
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 351, in handle_request
+    |     portal.call(self.app, scope, receive, send)
+    |     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\from_thread.py", line 290, in call
+    |     return cast(T_Retval, self.start_task_soon(func, *args).result())
+    |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    |     raise self._exception
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\from_thread.py", line 221, in _call_func
+    |     retval = await retval_or_awaitable
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    |     raise exc
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Lev\Desktop\=þòð  ÿðÿúð (2)\lc_main_site\lc_main_site.py", line 113, in inject_globals
+    |     request.state.user = request.session.get('user')
+    |                          ^^^^^^^^^^^^^^^
+    |   File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\requests.py", line 161, in session
+    |     assert "session" in self.scope, "SessionMiddleware must be installed to access request.session"
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    | AssertionError: SessionMiddleware must be installed to access request.session
+    +------------------------------------
+System.Management.Automation.RemoteException
+During handling of the above exception, another exception occurred:
+System.Management.Automation.RemoteException
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+    resp = client.get('/')
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 479, in get
+    return super().get(
+           ~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<6 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1053, in get
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<7 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 451, in request
+    return super().request(
+           ~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<11 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 354, in handle_request
+    raise exc
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\testclient.py", line 351, in handle_request
+    portal.call(self.app, scope, receive, send)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\from_thread.py", line 290, in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\from_thread.py", line 221, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lev\Desktop\=þòð  ÿðÿúð (2)\lc_main_site\lc_main_site.py", line 113, in inject_globals
+    request.state.user = request.session.get('user')
+                         ^^^^^^^^^^^^^^^
+  File "C:\Users\Lev\AppData\Local\Programs\Python\Python313\Lib\site-packages\starlette\requests.py", line 161, in session
+    assert "session" in self.scope, "SessionMiddleware must be installed to access request.session"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SessionMiddleware must be installed to access request.session

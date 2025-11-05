@@ -1,0 +1,27 @@
+{"action": "join", "payload": {"guild_id": ""}}
+{"action": "play", "payload": {"guild_id": ""}}
+{"action": "pause", "payload": {"guild_id": ""}}
+{"action": "skip", "payload": {"guild_id": ""}}
+{"action": "stop", "payload": {"guild_id": ""}}
+{"action": "stop", "payload": {"guild_id": ""}}
+{"action": "leave", "payload": {"guild_id": ""}}
+{"action": "shuffle", "payload": {"guild_id": ""}}
+{"action": "loop", "payload": {"guild_id": ""}}
+{"action": "volume", "payload": {"guild_id": "", "percent": 100}}
+{"ts": 1762021637, "action": "pause", "payload": {}}
+{"ts": 1762021637, "action": "resume", "payload": {}}
+{"ts": 1762021638, "action": "skip", "payload": {}}
+{"ts": 1762021638, "action": "stop", "payload": {}}
+{"ts": 1762021642, "action": "clear", "payload": {}}
+{"ts": 1762023398, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023405, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023406, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023406, "action": "pause", "payload": {}}
+{"ts": 1762023407, "action": "resume", "payload": {}}
+{"ts": 1762023407, "action": "skip", "payload": {}}
+{"ts": 1762023407, "action": "stop", "payload": {}}
+{"ts": 1762023408, "action": "clear", "payload": {}}
+{"ts": 1762023409, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023410, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023410, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}
+{"ts": 1762023410, "action": "play", "payload": {"query": "https://www.youtube.com/watch?v=StovNJ7bulU&t=15s"}}

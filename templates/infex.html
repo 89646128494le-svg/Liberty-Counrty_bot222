@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set active='home' %}
+{% block body %}
+<h1>🏷️ Кабинет владельца</h1>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h3>⚙️ Процессы</h3>
+    <form method="post" action="/process/bot/start" style="display:inline">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}">
+      <button class="btn {{ 'btn-sec' if states.bot=='running' else 'btn-pri' }}">🤖 Бот: {{ states.bot }}</button>
+    </form>
+    <form method="post" action="/process/bot/stop" style="display:inline;margin-left:8px">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}"><button class="btn btn-sec">⏹️</button>
+    </form>
+    <div style="height:8px"></div>
+    <form method="post" action="/process/admin/start" style="display:inline">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}">
+      <button class="btn {{ 'btn-sec' if states.admin=='running' else 'btn-pri' }}">🛠️ Админ: {{ states.admin }}</button>
+    </form>
+    <form method="post" action="/process/admin/stop" style="display:inline;margin-left:8px">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}"><button class="btn btn-sec">⏹️</button>
+    </form>
+    <div style="height:8px"></div>
+    <form method="post" action="/process/site/start" style="display:inline">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}">
+      <button class="btn {{ 'btn-sec' if states.site=='running' else 'btn-pri' }}">🌐 Сайт: {{ states.site }}</button>
+    </form>
+    <form method="post" action="/process/site/stop" style="display:inline;margin-left:8px">
+      <input type="hidden" name="csrf" value="{{ request.session.csrf }}"><button class="btn btn-sec">⏹️</button>
+    </form>
+    <p class="muted" style="margin-top:8px">Кнопки вызывают `python <script>.py`. Пути настраиваются переменными окружения.</p>
+  </div>
+  <div class="card">
+    <h3>🗄️ Таблицы БД</h3>
+    {% for t in tables %}
+      <a class="tag" href="/db/{{ t }}">📑 {{ t }}</a>
+    {% else %}
+      <div class="muted">Таблиц не найдено.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

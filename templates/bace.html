@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title or "Owner Portal" }}</title>
+  <style>
+    /* Градиенты и стекло — в стиле твоих страниц */
+    :root{
+      --c1:#667eea; --c2:#764ba2; --c3:#00d4ff; --c4:#00ffc8; --bg:#0a0e27;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Segoe UI,system-ui,Arial;
+      background: linear-gradient(135deg,#667eea, #764ba2 30%, #4facfe 60%, #00f2fe 100%);
+      background-size:400% 400%; animation:bgshift 20s ease infinite; color:#fff;
+    }
+    @keyframes bgshift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .shell{display:flex; min-height:100vh}
+    aside{
+      width:280px; padding:24px; backdrop-filter: blur(20px);
+      background: rgba(255,255,255,.08); border-right:1px solid rgba(255,255,255,.25)
+    }
+    main{flex:1; padding:32px}
+    .logo{font-weight:900;font-size:28px;background:linear-gradient(90deg,#fff,#f093fb);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px}
+    nav a{
+      display:block; text-decoration:none; color:#fff; padding:12px 14px; border-radius:14px;
+      background:rgba(255,255,255,.12); margin-bottom:10px; border:1px solid rgba(255,255,255,.25);
+      transition:.2s; font-weight:600
+    }
+    nav a.active, nav a:hover{transform:translateX(4px); background:linear-gradient(135deg,#f093fb,#f5576c)}
+    .card{
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3);
+      border-radius:18px; padding:20px; backdrop-filter: blur(10px); margin-bottom:20px
+    }
+    .btn{border:0; padding:10px 16px; border-radius:12px; font-weight:700; cursor:pointer}
+    .btn-pri{background:linear-gradient(135deg,#00d4ff,#00ffc8); color:#0a0e27}
+    .btn-sec{background:rgba(255,255,255,.2); color:#fff; border:1px solid rgba(255,255,255,.4)}
+    table{width:100%; border-collapse: collapse}
+    th,td{padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.2)}
+    input,select{padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.15); color:#fff}
+    .grid{display:grid; gap:16px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .muted{opacity:.85}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); margin-right:6px}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="logo">Liberty Country • Owner</div>
+      <nav>
+        <a href="/" class="{{ 'active' if active=='home' else '' }}">🏠 Главная</a>
+        <a href="/db" class="{{ 'active' if active=='db' else '' }}">🗄️ База данных</a>
+        <a href="/logout">🚪 Выйти</a>
+      </nav>
+      <div class="muted" style="margin-top:12px;font-size:12px">UI вдохновлён макетами из твоих страниц. 👍</div>
+    </aside>
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>
